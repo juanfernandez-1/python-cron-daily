@@ -267,7 +267,7 @@ html_page = f"""<!DOCTYPE html>
             padding: 24px 28px 32px 28px;
         }}
         /* En móviles: contenedor muchísimo más ancho (5x) */
-        @media (max-width: 768px) {{}
+        @media (max-width: 768px) {{
             .container {{
                 width: 500%;   /* 5 veces más ancho */
                 max-width: none;
