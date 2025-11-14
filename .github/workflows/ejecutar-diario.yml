@@ -4,7 +4,7 @@ on:
   schedule:
     # MINUTO HORA DÍA-MES MES DÍA-SEMANA (UTC)
     # Aquí: todos los días a las 7:00 UTC (8:00 o 9:00 en España según verano/invierno)
-    - cron: "0 7 * * *"
+    - cron: "0 7 * * 1"   # lunes (1) a las 7:00 UTC (MINUTO HORA DÍA_MES MES DÍA_SEMANA)
 
   workflow_dispatch:  # Permite lanzarlo manualmente desde la interfaz
 
@@ -34,7 +34,7 @@ jobs:
         with:
           name: informe-mercados
           path: informe_mercados.html
-          
+
       - name: Enviar informe por Telegram
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}

@@ -155,6 +155,50 @@ pd.set_option("display.max_rows", None)
 print("\n=== Radar global de mercados ===\n")
 print(df.to_string(index=False))
 
+
+# ==========================
+# 5. Resumen rápido para el HTML
+# ==========================
+
+# Top 3 por fuerza a 3 meses
+top3_3m = df.nlargest(3, "Ret_3M_%")[["Nombre", "Ret_3M_%"]]
+
+# Mercado más volátil
+mas_volatil = df.loc[df["Vol_Anual_%"].idxmax()]
+
+# Mercado con peor mes
+peor_mes = df.loc[df["Ret_1M_%"].idxmin()]
+
+# Medias de rentabilidad a 3M y 1Y
+media_3m = df["Ret_3M_%"].mean()
+media_1y = df["Ret_1Y_%"].mean()
+
+# Construimos el HTML de resumen
+top3_items_html = "".join(
+    f"<li>{row['Nombre']}: {row['Ret_3M_%']:.2f}% en 3 meses</li>"
+    for _, row in top3_3m.iterrows()
+)
+
+summary_html = f"""
+<div class="summary-box">
+    <h2>Resumen rápido</h2>
+    <p>En conjunto, los mercados han tenido una rentabilidad media de <strong>{media_3m:.2f}%</strong en los últimos 3 meses
+       y de <strong>{media_1y:.2f}%</strong en el último año.</p>
+
+    <p><strong>Top 3 por fuerza a 3 meses:</strong></p>
+    <ul>
+        {top3_items_html}
+    </ul>
+
+    <p><strong>Mercado más volátil:</strong> {mas_volatil['Nombre']} 
+       ({mas_volatil['Vol_Anual_%']:.2f}% de volatilidad anualizada).</p>
+
+    <p><strong>Peor comportamiento en el último mes:</strong> {peor_mes['Nombre']} 
+       ({peor_mes['Ret_1M_%']:.2f}% en el último mes).</p>
+</div>
+"""
+
+
 # ==========================
 # 6. Generar HTML bonito (menos decimales)
 # ==========================
@@ -246,6 +290,19 @@ html_page = f"""<!DOCTYPE html>
             color: #555;
             margin-top: 0.4rem;
         }}
+        .summary-box {{
+            margin-top: 1.5rem;
+            margin-bottom: 1.5rem;
+            padding: 12px 16px;
+            border-radius: 10px;
+            background-color: #f7f9fc;
+            border: 1px solid #d0d7e2;
+            font-size: 0.95rem;
+        }}
+        .summary-box ul {{
+            margin-top: 0.4rem;
+            margin-bottom: 0.8rem;
+        }}
         table {{
             border-collapse: collapse;
             width: 100%;
@@ -270,6 +327,8 @@ html_page = f"""<!DOCTYPE html>
             • Precio &gt; MA200 (largo plazo) &nbsp;• Precio &gt; MA50 (medio plazo) &nbsp;• Rentabilidad 1M &gt; 0.<br/>
             Valores más altos indican una tendencia más alcista.
         </p>
+
+        {summary_html}
 
         <h2>Resumen por índices y ETFs</h2>
         {tabla_html}

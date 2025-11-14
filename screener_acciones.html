@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Screener acciones – ALL – 14/11/2025</title>
+    <style>
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            background-color: #f0f2f5;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+            padding: 24px 28px 32px 28px;
+        }
+        h1 {
+            margin-top: 0;
+            margin-bottom: 0.2rem;
+        }
+        h2 {
+            margin-top: 1.6rem;
+        }
+        .subtitle {
+            color: #666;
+            margin-bottom: 1.2rem;
+        }
+        .badge {
+            display: inline-block;
+            background-color: #222;
+            color: #fff;
+            padding: 4px 10px;
+            border-radius: 999px;
+            font-size: 0.75rem;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+        }
+        .summary-box {
+            margin-top: 1.5rem;
+            margin-bottom: 1.5rem;
+            padding: 12px 16px;
+            border-radius: 10px;
+            background-color: #f7f9fc;
+            border: 1px solid #d0d7e2;
+            font-size: 0.95rem;
+        }
+        .summary-box ul {
+            margin-top: 0.4rem;
+            margin-bottom: 0.8rem;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            font-size: 0.9rem;
+        }
+        /* === Estilos tabla principal (to_html) === */
+        table.tabla-principal {
+            border-collapse: collapse;
+            width: 100%;
+            font-size: 0.9rem;
+            margin-top: 1rem;
+        }
+
+        table.tabla-principal th {
+            background-color: #222;
+            color: #fff;
+            padding: 8px;
+            text-align: center;
+        }
+
+        table.tabla-principal td {
+            padding: 6px;
+            border-bottom: 1px solid #eee;
+            text-align: right;
+        }
+
+        table.tabla-principal tbody tr:nth-child(even) {
+            background-color: #f5f5f5;
+        }
+
+        /* Primera y segunda columna alineadas a la izquierda */
+        table.tabla-principal td:nth-child(1),
+        table.tabla-principal td:nth-child(2) {
+            text-align: left;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <span class="badge">Screener de acciones</span>
+        <h1>Principales acciones por interés</h1>
+        <div class="subtitle">Región: ALL &nbsp;·&nbsp; Fecha: 14/11/2025</div>
+
+        
+<div class="summary-box">
+    <h2>Resumen rápido</h2>
+    <p>Se han analizado <strong>139</strong> acciones de la región <strong>ALL</strong>.
+       La rentabilidad media es de <strong>7.67%</strong en 3 meses
+       y de <strong>25.01%</strong en el último año.</p>
+
+    <p>Hay <strong>86</strong> acciones con <strong>Interest_Score ≥ 4</strong> (combinan buena tendencia y/o volumen.</p>
+
+    <p><strong>Top 5 por interés:</strong></p>
+    <ul>
+        <li>Sabesp (Brasil): score 6, 23.07% en 3M</li><li>Cisco Systems (USA): score 6, 17.59% en 3M</li><li>Infosys (India): score 6, 9.92% en 3M</li><li>Bank of China (HK): score 6, 3.26% en 3M</li><li>SK Hynix (Corea): score 5, 133.93% en 3M</li>
+    </ul>
+</div>
+
+
+        <h2>Top 30 acciones más interesantes</h2>
+        <table class="dataframe tabla-principal">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Ticker</th>
+      <th>Nombre</th>
+      <th>Precio</th>
+      <th>Ret_1Y_%</th>
+      <th>Ret_6M_%</th>
+      <th>Ret_3M_%</th>
+      <th>Ret_1M_%</th>
+      <th>Ret_1W_%</th>
+      <th>Ret_1D_%</th>
+      <th>Vol_Anual_%</th>
+      <th>Vol_Ratio</th>
+      <th>Trend_Score_0_3</th>
+      <th>Interest_Score_0_6</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>SBS</td>
+      <td>Sabesp (Brasil)</td>
+      <td>26.57</td>
+      <td>72.13</td>
+      <td>30.57</td>
+      <td>23.07</td>
+      <td>14.77</td>
+      <td>4.07</td>
+      <td>-0.34</td>
+      <td>31.84</td>
+      <td>1.55</td>
+      <td>3</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <td>CSCO</td>
+      <td>Cisco Systems (USA)</td>
+      <td>77.38</td>
+      <td>35.38</td>
+      <td>21.87</td>
+      <td>17.59</td>
+      <td>11.31</td>
+      <td>8.92</td>
+      <td>4.62</td>
+      <td>23.28</td>
+      <td>2.65</td>
+      <td>3</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <td>INFY.NS</td>
+      <td>Infosys (India)</td>
+      <td>1541.80</td>
+      <td>-11.96</td>
+      <td>-1.59</td>
+      <td>9.92</td>
+      <td>5.07</td>
+      <td>5.12</td>
+      <td>-0.64</td>
+      <td>25.12</td>
+      <td>2.16</td>
+      <td>3</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <td>3988.HK</td>
+      <td>Bank of China (HK)</td>
+      <td>4.75</td>
+      <td>33.63</td>
+      <td>1.50</td>
+      <td>3.26</td>
+      <td>13.10</td>
+      <td>3.94</td>
+      <td>0.85</td>
+      <td>20.78</td>
+      <td>1.51</td>
+      <td>3</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <td>000660.KS</td>
+      <td>SK Hynix (Corea)</td>
+      <td>612000.00</td>
+      <td>224.73</td>
+      <td>222.64</td>
+      <td>133.93</td>
+      <td>44.85</td>
+      <td>3.20</td>
+      <td>-0.81</td>
+      <td>52.31</td>
+      <td>0.83</td>
+      <td>3</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <td>NOKIA.HE</td>
+      <td>Nokia (Finlandia)</td>
+      <td>5.98</td>
+      <td>46.45</td>
+      <td>31.32</td>
+      <td>67.37</td>
+      <td>26.09</td>
+      <td>0.54</td>
+      <td>-0.23</td>
+      <td>39.52</td>
+      <td>0.51</td>
+      <td>3</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <td>005930.KS</td>
+      <td>Samsung Electronics (Corea)</td>
+      <td>102800.00</td>
+      <td>76.55</td>
+      <td>90.28</td>
+      <td>46.47</td>
+      <td>8.21</td>
+      <td>3.63</td>
+      <td>-0.29</td>
+      <td>33.38</td>
+      <td>0.81</td>
+      <td>3</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <td>MC.PA</td>
+      <td>LVMH (Francia)</td>
+      <td>636.80</td>
+      <td>10.86</td>
+      <td>29.00</td>
+      <td>33.82</td>
+      <td>6.51</td>
+      <td>6.13</td>
+      <td>-1.61</td>
+      <td>33.35</td>
+      <td>1.23</td>
+      <td>3</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <td>RWE.DE</td>
+      <td>RWE (Alemania)</td>
+      <td>46.86</td>
+      <td>52.50</td>
+      <td>40.93</td>
+      <td>33.16</td>
+      <td>14.32</td>
+      <td>8.67</td>
+      <td>0.00</td>
+      <td>22.90</td>
+      <td>0.00</td>
+      <td>3</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <td>ERIC-B.ST</td>
+      <td>Ericsson B (Suecia)</td>
+      <td>94.58</td>
+      <td>11.47</td>
+      <td>15.97</td>
+      <td>30.24</td>
+      <td>2.87</td>
+      <td>0.75</td>
+      <td>0.75</td>
+      <td>33.26</td>
+      <td>0.71</td>
+      <td>3</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <td>REP.MC</td>
+      <td>Repsol (España)</td>
+      <td>17.03</td>
+      <td>54.49</td>
+      <td>50.74</td>
+      <td>27.76</td>
+      <td>17.29</td>
+      <td>4.19</td>
+      <td>1.95</td>
+      <td>23.61</td>
+      <td>1.01</td>
+      <td>3</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <td>SID</td>
+      <td>CSN (Brasil)</td>
+      <td>1.63</td>
+      <td>-14.14</td>
+      <td>-2.40</td>
+      <td>27.34</td>
+      <td>5.16</td>
+      <td>3.16</td>
+      <td>-1.21</td>
+      <td>51.19</td>
+      <td>1.07</td>
+      <td>3</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <td>VALE</td>
+      <td>Vale (Brasil)</td>
+      <td>12.38</td>
+      <td>31.37</td>
+      <td>30.49</td>
+      <td>24.80</td>
+      <td>10.83</td>
+      <td>1.23</td>
+      <td>-0.80</td>
+      <td>28.23</td>
+      <td>0.60</td>
+      <td>3</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <td>BBD</td>
+      <td>Bradesco (Brasil)</td>
+      <td>3.66</td>
+      <td>70.27</td>
+      <td>36.87</td>
+      <td>23.65</td>
+      <td>14.38</td>
+      <td>4.27</td>
+      <td>-0.54</td>
+      <td>38.05</td>
+      <td>1.03</td>
+      <td>3</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <td>ELE.MC</td>
+      <td>Endesa (España)</td>
+      <td>32.20</td>
+      <td>71.83</td>
+      <td>22.28</td>
+      <td>21.23</td>
+      <td>11.65</td>
+      <td>1.13</td>
+      <td>0.85</td>
+      <td>18.64</td>
+      <td>0.68</td>
+      <td>3</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <td>FER.MC</td>
+      <td>Ferrovial (España)</td>
+      <td>55.42</td>
+      <td>54.10</td>
+      <td>20.70</td>
+      <td>19.16</td>
+      <td>7.02</td>
+      <td>1.46</td>
+      <td>-0.22</td>
+      <td>19.77</td>
+      <td>0.63</td>
+      <td>3</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <td>SSL</td>
+      <td>Sasol (Sudáfrica)</td>
+      <td>6.83</td>
+      <td>22.84</td>
+      <td>84.10</td>
+      <td>18.99</td>
+      <td>15.37</td>
+      <td>6.06</td>
+      <td>-1.87</td>
+      <td>60.28</td>
+      <td>0.87</td>
+      <td>3</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <td>ACS.MC</td>
+      <td>ACS (España)</td>
+      <td>77.80</td>
+      <td>94.46</td>
+      <td>33.07</td>
+      <td>18.51</td>
+      <td>10.75</td>
+      <td>3.60</td>
+      <td>-1.27</td>
+      <td>24.98</td>
+      <td>1.06</td>
+      <td>3</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <td>AAPL</td>
+      <td>Apple (USA)</td>
+      <td>272.95</td>
+      <td>22.28</td>
+      <td>29.36</td>
+      <td>17.97</td>
+      <td>9.58</td>
+      <td>1.28</td>
+      <td>-0.19</td>
+      <td>32.50</td>
+      <td>0.97</td>
+      <td>3</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <td>SAN.MC</td>
+      <td>Banco Santander (España)</td>
+      <td>9.55</td>
+      <td>112.98</td>
+      <td>37.49</td>
+      <td>17.93</td>
+      <td>14.04</td>
+      <td>6.79</td>
+      <td>-0.15</td>
+      <td>31.86</td>
+      <td>0.72</td>
+      <td>3</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <td>ENGI.PA</td>
+      <td>Engie (Francia)</td>
+      <td>21.93</td>
+      <td>53.99</td>
+      <td>16.52</td>
+      <td>17.78</td>
+      <td>13.54</td>
+      <td>2.72</td>
+      <td>1.20</td>
+      <td>17.73</td>
+      <td>0.95</td>
+      <td>3</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <td>VWS.CO</td>
+      <td>Vestas (Dinamarca)</td>
+      <td>155.55</td>
+      <td>49.78</td>
+      <td>38.57</td>
+      <td>17.71</td>
+      <td>20.53</td>
+      <td>4.50</td>
+      <td>-5.21</td>
+      <td>54.55</td>
+      <td>0.95</td>
+      <td>3</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <td>BBVA.MC</td>
+      <td>BBVA (España)</td>
+      <td>18.88</td>
+      <td>112.02</td>
+      <td>40.42</td>
+      <td>17.55</td>
+      <td>21.83</td>
+      <td>5.27</td>
+      <td>-0.13</td>
+      <td>30.37</td>
+      <td>0.52</td>
+      <td>3</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <td>6758.T</td>
+      <td>Sony (Japón)</td>
+      <td>4669.00</td>
+      <td>72.39</td>
+      <td>28.16</td>
+      <td>17.31</td>
+      <td>8.33</td>
+      <td>7.33</td>
+      <td>-0.36</td>
+      <td>39.35</td>
+      <td>1.04</td>
+      <td>3</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <td>AIR.PA</td>
+      <td>Airbus (Francia)</td>
+      <td>210.25</td>
+      <td>55.17</td>
+      <td>29.70</td>
+      <td>14.13</td>
+      <td>3.57</td>
+      <td>0.77</td>
+      <td>-0.83</td>
+      <td>27.45</td>
+      <td>1.16</td>
+      <td>3</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <td>ITX.MC</td>
+      <td>Inditex (España)</td>
+      <td>48.93</td>
+      <td>-1.18</td>
+      <td>2.49</td>
+      <td>13.96</td>
+      <td>3.92</td>
+      <td>2.58</td>
+      <td>-1.87</td>
+      <td>24.72</td>
+      <td>0.46</td>
+      <td>3</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <td>7203.T</td>
+      <td>Toyota (Japón)</td>
+      <td>3198.00</td>
+      <td>23.23</td>
+      <td>13.94</td>
+      <td>13.74</td>
+      <td>11.37</td>
+      <td>1.88</td>
+      <td>0.25</td>
+      <td>34.62</td>
+      <td>0.68</td>
+      <td>3</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <td>ROG.SW</td>
+      <td>Roche (Suiza)</td>
+      <td>289.90</td>
+      <td>13.83</td>
+      <td>11.63</td>
+      <td>13.24</td>
+      <td>2.04</td>
+      <td>9.31</td>
+      <td>-0.17</td>
+      <td>23.70</td>
+      <td>0.76</td>
+      <td>3</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <td>YPF</td>
+      <td>YPF (Argentina)</td>
+      <td>37.24</td>
+      <td>24.80</td>
+      <td>4.11</td>
+      <td>12.95</td>
+      <td>40.37</td>
+      <td>1.97</td>
+      <td>-1.77</td>
+      <td>60.19</td>
+      <td>0.47</td>
+      <td>3</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <td>035420.KS</td>
+      <td>Naver (Corea)</td>
+      <td>265500.00</td>
+      <td>57.68</td>
+      <td>40.70</td>
+      <td>12.74</td>
+      <td>2.71</td>
+      <td>0.57</td>
+      <td>0.76</td>
+      <td>42.35</td>
+      <td>0.45</td>
+      <td>3</td>
+      <td>5</td>
+    </tr>
+  </tbody>
+</table>
+        <h2>Mi cartera (seguimiento personal)</h2>
+        <table class="dataframe tabla-principal">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Ticker</th>
+      <th>Nombre</th>
+      <th>Precio_compra</th>
+      <th>Precio_actual</th>
+      <th>Cantidad</th>
+      <th>Inversion_inicial</th>
+      <th>Valor_actual</th>
+      <th>Ganancia_€</th>
+      <th>Rentabilidad_%</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>BKT.MC</td>
+      <td>Bankinter (España)</td>
+      <td>13.5</td>
+      <td>13.95</td>
+      <td>22.2222</td>
+      <td>300.0</td>
+      <td>310.11</td>
+      <td>10.11</td>
+      <td>3.37</td>
+    </tr>
+  </tbody>
+</table>
+    </div>
+</body>
+</html>

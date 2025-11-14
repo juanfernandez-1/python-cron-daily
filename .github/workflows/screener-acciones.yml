@@ -1,0 +1,45 @@
+name: Screener acciones L-X-V
+
+on:
+  schedule:
+    # Lunes (1), miércoles (3) y viernes (5) a las 7:00 UTC
+    - cron: "0 7 * * 1,3,5"
+  workflow_dispatch:  # para poder lanzarlo a mano cuando quieras
+
+jobs:
+  run-screener:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout del repositorio
+        uses: actions/checkout@v4
+
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Instalar dependencias
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Ejecutar screener_regiones_html.py
+        run: python screener_regiones_html.py
+
+      - name: Subir screener_acciones.html como artefacto
+        uses: actions/upload-artifact@v4
+        with:
+          name: screener-acciones
+          path: screener_acciones.html
+
+      - name: Enviar screener por Telegram
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: |
+          echo "Enviando screener_acciones.html por Telegram..."
+          curl -X POST "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendDocument" \
+            -F chat_id="${TELEGRAM_CHAT_ID}" \
+            -F document="@screener_acciones.html" \
+            -F caption="Screener acciones (L-X-V)"
