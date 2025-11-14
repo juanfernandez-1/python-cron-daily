@@ -650,3 +650,78 @@ with open(output_file, "w", encoding="utf-8") as f:
 
 print(f"\nInforme HTML generado: {output_file}")
 
+# =========================================================
+# 7. Resumen en texto y alertas para el screener
+#    (poner al final del script, después de generar el HTML)
+# =========================================================
+
+fecha_str = datetime.today().strftime("%d/%m/%Y")
+
+# Por si acaso, eliminamos filas sin retornos 1M/3M
+df_valid = df.dropna(subset=["Ret_1M_%", "Ret_3M_%"], how="all").copy()
+
+if not df_valid.empty:
+    # --- Top por rentabilidad 1M y 3M ---
+    top_n = 5
+
+    top_1m = df_valid.sort_values("Ret_1M_%", ascending=False).head(top_n)
+    top_3m = df_valid.sort_values("Ret_3M_%", ascending=False).head(top_n)
+
+    nombre_col = "Nombre" if "Nombre" in df_valid.columns else None
+
+    def etiqueta_fila(row):
+        if nombre_col is not None:
+            return f"{row['Ticker']} ({row[nombre_col]})"
+        else:
+            return f"{row['Ticker']}"
+
+    lineas_top_1m = [
+        f"- {etiqueta_fila(row)}  {row['Ret_1M_%']:.1f}%"
+        for _, row in top_1m.iterrows()
+    ]
+
+    lineas_top_3m = [
+        f"- {etiqueta_fila(row)}  {row['Ret_3M_%']:.1f}%"
+        for _, row in top_3m.iterrows()
+    ]
+
+    resumen_screener = f"""Screener acciones – {fecha_str}
+
+Top {top_n} por rentabilidad 1M:
+{chr(10).join(lineas_top_1m)}
+
+Top {top_n} por rentabilidad 3M:
+{chr(10).join(lineas_top_3m)}
+"""
+
+    with open("resumen_screener.txt", "w", encoding="utf-8") as f:
+        f.write(resumen_screener)
+
+    # ----------------- Alertas -----------------
+    alertas = []
+
+    for _, row in df_valid.iterrows():
+        t = row["Ticker"]
+        r1 = row.get("Ret_1M_%", np.nan)
+        r3 = row.get("Ret_3M_%", np.nan)
+
+        # Movimientos fuertes 1M
+        if not np.isnan(r1) and r1 >= 15:
+            alertas.append(f"🔥 {t}: +{r1:.1f}% en 1M")
+        elif not np.isnan(r1) and r1 <= -8:
+            alertas.append(f"⚠️ {t}: {r1:.1f}% en 1M")
+
+        # Movimientos fuertes 3M
+        if not np.isnan(r3) and r3 >= 25:
+            alertas.append(f"🚀 {t}: +{r3:.1f}% en 3M")
+
+        # Si tienes una columna de score de interés, por ejemplo "Interest_Score"
+        if "Interest_Score" in df_valid.columns:
+            score = row["Interest_Score"]
+            if score >= 3:
+                alertas.append(f"⭐ {t}: Interest_Score alto ({score})")
+
+    if alertas:
+        alertas.insert(0, f"Alertas screener – {fecha_str}\n")
+        with open("alertas_screener.txt", "w", encoding="utf-8") as f:
+            f.write("\n".join(alertas))

@@ -353,3 +353,64 @@ with open(output_file, "w", encoding="utf-8") as f:
 
 print(f"\nInforme HTML generado: {output_file}")
 
+# === 7. Resumen en texto y alertas ===
+
+# Top 3 mejores y peores a 1M
+top3_1m = df.nlargest(3, "Ret_1M_%")[["Ticker", "Ret_1M_%"]]
+bot3_1m = df.nsmallest(3, "Ret_1M_%")[["Ticker", "Ret_1M_%"]]
+
+n_total = len(df)
+n_tend_fuerte = (df["Trend_Score_0_3"] >= 2).sum()
+
+lineas_top = ", ".join(
+    f"{row.Ticker} {row['Ret_1M_%']:.1f}%"
+    for _, row in top3_1m.iterrows()
+)
+lineas_bot = ", ".join(
+    f"{row.Ticker} {row['Ret_1M_%']:.1f}%"
+    for _, row in bot3_1m.iterrows()
+)
+
+resumen_txt = f"""Radar mercados – {fecha_str}
+
+Top 3 1M:
+{lineas_top}
+
+Bottom 3 1M:
+{lineas_bot}
+
+Activos en tendencia fuerte (score ≥ 2):
+{n_tend_fuerte} de {n_total}
+"""
+
+with open("resumen_mercados.txt", "w", encoding="utf-8") as f:
+    f.write(resumen_txt)
+
+# ----- Alertas sencillas -----
+alertas = []
+
+for _, row in df.iterrows():
+    t = row["Ticker"]
+    p = row["Precio"]
+    ma20 = calc_moving_average(prices[t], 20)
+    ma50 = row["MA50"]
+    ma200 = row["MA200"]
+
+    # Cruces de medias (ejemplos, ajusta a tu gusto)
+    if not np.isnan(ma20) and p < ma20:
+        alertas.append(f"⚠️ {t}: precio ha caído por debajo de MA20 ({p:.2f} < {ma20:.2f})")
+    if not np.isnan(ma50) and p < ma50:
+        alertas.append(f"⚠️ {t}: precio ha caído por debajo de MA50 ({p:.2f} < {ma50:.2f})")
+    if not np.isnan(ma200) and p < ma200:
+        alertas.append(f"⚠️ {t}: precio ha caído por debajo de MA200 ({p:.2f} < {ma200:.2f})")
+
+    # Volatilidad alta
+    vol = row["Vol_Anual_%"]
+    if not np.isnan(vol) and vol > 25:
+        alertas.append(f"❗ {t}: volatilidad anual alta ({vol:.1f}%)")
+
+# Guardar solo si hay algo
+if alertas:
+    alertas.insert(0, f"Alertas radar mercados – {fecha_str}\n")
+    with open("alertas_mercados.txt", "w", encoding="utf-8") as f:
+        f.write("\n".join(alertas))

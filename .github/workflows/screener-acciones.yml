@@ -43,3 +43,33 @@ jobs:
             -F chat_id="${TELEGRAM_CHAT_ID}" \
             -F document="@screener_acciones.html" \
             -F caption="Screener acciones (L-X-V)"
+
+      - name: Enviar resumen_screener.txt por Telegram (si existe)
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: |
+          if [ -f resumen_screener.txt ]; then
+            echo "Enviando resumen_screener.txt por Telegram..."
+            RESUMEN="$(cat resumen_screener.txt)"
+            curl -X POST "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage" \
+              -d chat_id="${TELEGRAM_CHAT_ID}" \
+              --data-urlencode "text=${RESUMEN}"
+          else
+            echo "No se encontró resumen_screener.txt, se omite el envío."
+          fi
+
+      - name: Enviar alertas_screener.txt por Telegram (si hay alertas)
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: |
+          if [ -s alertas_screener.txt ]; then
+            echo "Enviando alertas_screener.txt por Telegram..."
+            ALERTAS="$(cat alertas_screener.txt)"
+            curl -X POST "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage" \
+              -d chat_id="${TELEGRAM_CHAT_ID}" \
+              --data-urlencode "text=${ALERTAS}"
+          else
+            echo "No hay alertas_screener.txt (no existe o está vacío), no se envían alertas."
+          fi

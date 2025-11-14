@@ -46,3 +46,26 @@ jobs:
             -F chat_id="${TELEGRAM_CHAT_ID}" \
             -F document="@informe_mercados.html" \
             -F caption="Informe mercados diario"
+      - name: Enviar resumen en texto por Telegram
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: |
+          if [ -f resumen_mercados.txt ]; then
+            RESUMEN=$(cat resumen_mercados.txt)
+            curl -X POST "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage" \
+              -d chat_id="${TELEGRAM_CHAT_ID}" \
+              --data-urlencode text="$RESUMEN"
+          fi
+
+      - name: Enviar alertas si las hay
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: |
+          if [ -s alertas_mercados.txt ]; then
+            ALERTAS=$(cat alertas_mercados.txt)
+            curl -X POST "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage" \
+              -d chat_id="${TELEGRAM_CHAT_ID}" \
+              --data-urlencode text="$ALERTAS"
+          fi

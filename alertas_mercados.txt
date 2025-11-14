@@ -1,0 +1,7 @@
+Alertas radar mercados – 14/11/2025
+
+⚠️ EEM: precio ha caído por debajo de MA20 (54.93 < 55.09)
+⚠️ QQQ: precio ha caído por debajo de MA20 (608.40 < 619.11)
+⚠️ ^NDX: precio ha caído por debajo de MA20 (24993.46 < 25442.09)
+⚠️ SPY: precio ha caído por debajo de MA20 (672.04 < 677.13)
+⚠️ ^GSPC: precio ha caído por debajo de MA20 (6737.49 < 6790.98)

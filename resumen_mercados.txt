@@ -1,0 +1,10 @@
+Radar mercados – 14/11/2025
+
+Top 3 1M:
+^N225 6.2%, ^FTSE 4.8%, ^STOXX50E 4.2%
+
+Bottom 3 1M:
+^GDAXI 0.6%, ^NDX 1.0%, ^GSPC 1.0%
+
+Activos en tendencia fuerte (score ≥ 2):
+12 de 12
