@@ -69,3 +69,15 @@ jobs:
               -d chat_id="${TELEGRAM_CHAT_ID}" \
               --data-urlencode text="$ALERTAS"
           fi
+      - name: Preparar HTML para GitHub Pages
+        run: |
+          rm -rf public
+          mkdir -p public
+          cp screener_acciones.html public/index.html
+
+      - name: Publicar en GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: gh-pages
+          publish_dir: ./public

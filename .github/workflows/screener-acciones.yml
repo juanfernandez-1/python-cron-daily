@@ -73,3 +73,15 @@ jobs:
           else
             echo "No hay alertas_screener.txt (no existe o está vacío), no se envían alertas."
           fi
+      - name: Preparar HTML para GitHub Pages
+        run: |
+          rm -rf public
+          mkdir -p public
+          cp informe_mercados.html public/index.html
+
+      - name: Publicar en GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: gh-pages
+          publish_dir: ./public
