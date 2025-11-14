@@ -15,7 +15,7 @@
 *.tsv
 
 # Archivos HTML del informe
-*.html
+#*.html
 
 # ============================
 #  PYTHON
