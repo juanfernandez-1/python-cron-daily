@@ -1,0 +1,66 @@
+# ============================
+#  EXCLUSIÓN DE ARCHIVOS DE SALIDA
+# ============================
+
+# Documentos Office
+*.docx
+*.doc
+*.xlsx
+*.xls
+*.pdf
+*.pptx
+
+# Datos
+*.csv
+*.tsv
+
+# Archivos HTML del informe
+*.html
+
+# ============================
+#  PYTHON
+# ============================
+
+# Carpetas de entorno virtual
+venv/
+env/
+.venv/
+.pyenv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Distribuciones / builds
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Configuración de herramientas
+*.log
+
+# ============================
+#  EDITORES
+# ============================
+
+# VSCode
+.vscode/
+
+# PyCharm
+.idea/
+
+# ============================
+#  SISTEMA OPERATIVO
+# ============================
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# macOS
+.DS_Store
