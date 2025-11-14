@@ -1,0 +1,36 @@
+name: Radar de mercados diario
+
+on:
+  schedule:
+    # MINUTO HORA DÍA-MES MES DÍA-SEMANA (UTC)
+    # Aquí: todos los días a las 7:00 UTC (8:00 o 9:00 en España según verano/invierno)
+    - cron: "0 7 * * *"
+
+  workflow_dispatch:  # Permite lanzarlo manualmente desde la interfaz
+
+jobs:
+  run-daily:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout del repositorio
+        uses: actions/checkout@v4
+
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Instalar dependencias
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Ejecutar script radar_mercados_global_html.py
+        run: python radar_mercados_global_html.py
+
+      - name: Subir informe HTML como artefacto
+        uses: actions/upload-artifact@v4
+        with:
+          name: informe-mercados
+          path: informe_mercados.html
