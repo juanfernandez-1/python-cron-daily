@@ -529,6 +529,7 @@ html_page = f"""<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Screener acciones – {ACTIVE_REGION} – {fecha_str}</title>
     <style>
         body {{
@@ -537,6 +538,7 @@ html_page = f"""<!DOCTYPE html>
             margin: 0;
             padding: 20px;
         }}
+        /* Contenedor normal en PC */
         .container {{
             max-width: 1200px;
             margin: 0 auto;
@@ -545,6 +547,14 @@ html_page = f"""<!DOCTYPE html>
             box-shadow: 0 10px 25px rgba(0,0,0,0.08);
             padding: 24px 28px 32px 28px;
         }}
+        /* En móviles: contenedor muchísimo más ancho (5x) */
+        @media (max-width: 768px) {{
+            .container {{
+                width: 500%;   /* 5 veces más ancho */
+                max-width: none;
+                overflow-x: auto;
+            }}
+        }}       
         h1 {{
             margin-top: 0;
             margin-bottom: 0.2rem;
