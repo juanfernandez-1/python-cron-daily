@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Informe mercados – 14/11/2025</title>
+    <title>Screener acciones – ALL – 14/11/2025</title>
     <style>
         body {
             font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -27,7 +27,7 @@
                 max-width: none;
                 overflow-x: auto;
             }
-        }        
+        }       
         h1 {
             margin-top: 0;
             margin-bottom: 0.2rem;
@@ -49,11 +49,6 @@
             letter-spacing: 0.06em;
             text-transform: uppercase;
         }
-        .legend {
-            font-size: 0.9rem;
-            color: #555;
-            margin-top: 0.4rem;
-        }
         .summary-box {
             margin-top: 1.5rem;
             margin-bottom: 1.5rem;
@@ -72,278 +67,562 @@
             width: 100%;
             font-size: 0.9rem;
         }
-        caption {
-            caption-side: top;
-            text-align: left;
-            font-weight: bold;
-            margin-bottom: 8px;
+        /* === Estilos tabla principal (to_html) === */
+        table.tabla-principal {
+            border-collapse: collapse;
+            width: 100%;
+            font-size: 0.9rem;
+            margin-top: 1rem;
         }
+
+        table.tabla-principal th {
+            background-color: #222;
+            color: #fff;
+            padding: 8px;
+            text-align: center;
+        }
+
+        table.tabla-principal td {
+            padding: 6px;
+            border-bottom: 1px solid #eee;
+            text-align: right;
+        }
+
+        table.tabla-principal tbody tr:nth-child(even) {
+            background-color: #f5f5f5;
+        }
+
+        /* Primera y segunda columna alineadas a la izquierda */
+        table.tabla-principal td:nth-child(1),
+        table.tabla-principal td:nth-child(2) {
+            text-align: left;
+        }
+
     </style>
 </head>
 <body>
     <div class="container">
-        <span class="badge">Radar de mercados</span>
-        <h1>Informe global de mercados</h1>
-        <div class="subtitle">Fecha: 14/11/2025</div>
-
-        <p class="legend">
-            <strong>Trend_Score_0_3</strong> suma puntos si:<br/>
-            • Precio &gt; MA200 (largo plazo) &nbsp;• Precio &gt; MA50 (medio plazo) &nbsp;• Rentabilidad 1M &gt; 0.<br/>
-            Valores más altos indican una tendencia más alcista.
-        </p>
+        <span class="badge">Screener de acciones</span>
+        <h1>Principales acciones por interés</h1>
+        <div class="subtitle">Región: ALL &nbsp;·&nbsp; Fecha: 14/11/2025</div>
 
         
 <div class="summary-box">
     <h2>Resumen rápido</h2>
-    <p>En conjunto, los mercados han tenido una rentabilidad media de <strong>6.99%</strong en los últimos 3 meses
-       y de <strong>20.25%</strong en el último año.</p>
+    <p>Se han analizado <strong>139</strong> acciones de la región <strong>ALL</strong>.
+       La rentabilidad media es de <strong>7.79%</strong en 3 meses
+       y de <strong>25.32%</strong en el último año.</p>
 
-    <p><strong>Top 3 por fuerza a 3 meses:</strong></p>
+    <p>Hay <strong>88</strong> acciones con <strong>Interest_Score ≥ 4</strong> (combinan buena tendencia y/o volumen.</p>
+
+    <p><strong>Top 5 por interés:</strong></p>
     <ul>
-        <li>Nikkei 225 (Japón): 22.10% en 3 meses</li><li>EEM (Emerging Markets ETF): 9.99% en 3 meses</li><li>FTSE 100 (UK): 8.00% en 3 meses</li>
+        <li>RWE (Alemania): score 6, 34.54% en 3M</li><li>Cisco Systems (USA): score 6, 17.59% en 3M</li><li>Banco Santander (España): score 6, 17.52% en 3M</li><li>Infosys (India): score 6, 10.31% en 3M</li><li>Petrobras PN (Brasil): score 6, 9.66% en 3M</li>
     </ul>
-
-    <p><strong>Mercado más volátil:</strong> Hang Seng (Hong Kong) 
-       (24.37% de volatilidad anualizada).</p>
-
-    <p><strong>Peor comportamiento en el último mes:</strong> DAX (Alemania) 
-       (0.60% en el último mes).</p>
 </div>
 
 
-        <h2>Resumen por índices y ETFs</h2>
-        <style type="text/css">
-#T_fff3a th {
-  background-color: #222;
-  color: white;
-  padding: 8px;
-  text-align: center;
-}
-#T_fff3a td {
-  padding: 6px;
-}
-#T_fff3a tbody tr:nth-child(even) {
-  background-color: #f5f5f5;
-}
-#T_fff3a_row0_col0, #T_fff3a_row0_col1, #T_fff3a_row0_col12, #T_fff3a_row1_col0, #T_fff3a_row1_col1, #T_fff3a_row1_col12, #T_fff3a_row2_col0, #T_fff3a_row2_col1, #T_fff3a_row2_col12, #T_fff3a_row3_col0, #T_fff3a_row3_col1, #T_fff3a_row3_col12, #T_fff3a_row4_col0, #T_fff3a_row4_col1, #T_fff3a_row4_col12, #T_fff3a_row5_col0, #T_fff3a_row5_col1, #T_fff3a_row5_col12, #T_fff3a_row6_col0, #T_fff3a_row6_col1, #T_fff3a_row6_col12, #T_fff3a_row7_col0, #T_fff3a_row7_col1, #T_fff3a_row7_col12, #T_fff3a_row8_col0, #T_fff3a_row8_col1, #T_fff3a_row8_col12, #T_fff3a_row9_col0, #T_fff3a_row9_col1, #T_fff3a_row9_col12, #T_fff3a_row10_col0, #T_fff3a_row10_col1, #T_fff3a_row10_col12, #T_fff3a_row11_col0, #T_fff3a_row11_col1, #T_fff3a_row11_col12 {
-  text-align: center;
-}
-#T_fff3a_row0_col2, #T_fff3a_row0_col10, #T_fff3a_row0_col11, #T_fff3a_row1_col2, #T_fff3a_row1_col10, #T_fff3a_row1_col11, #T_fff3a_row2_col2, #T_fff3a_row2_col10, #T_fff3a_row2_col11, #T_fff3a_row3_col2, #T_fff3a_row3_col10, #T_fff3a_row3_col11, #T_fff3a_row4_col2, #T_fff3a_row4_col10, #T_fff3a_row4_col11, #T_fff3a_row5_col2, #T_fff3a_row5_col10, #T_fff3a_row5_col11, #T_fff3a_row6_col2, #T_fff3a_row6_col10, #T_fff3a_row6_col11, #T_fff3a_row7_col2, #T_fff3a_row7_col10, #T_fff3a_row7_col11, #T_fff3a_row8_col2, #T_fff3a_row8_col10, #T_fff3a_row8_col11, #T_fff3a_row9_col2, #T_fff3a_row9_col10, #T_fff3a_row9_col11, #T_fff3a_row10_col2, #T_fff3a_row10_col10, #T_fff3a_row10_col11, #T_fff3a_row11_col2, #T_fff3a_row11_col10, #T_fff3a_row11_col11 {
-  text-align: right;
-}
-#T_fff3a_row0_col3, #T_fff3a_row0_col4, #T_fff3a_row0_col5, #T_fff3a_row0_col6, #T_fff3a_row0_col7, #T_fff3a_row0_col8, #T_fff3a_row0_col9, #T_fff3a_row1_col3, #T_fff3a_row1_col4, #T_fff3a_row1_col5, #T_fff3a_row1_col6, #T_fff3a_row1_col7, #T_fff3a_row1_col9, #T_fff3a_row2_col3, #T_fff3a_row2_col4, #T_fff3a_row2_col5, #T_fff3a_row2_col6, #T_fff3a_row2_col7, #T_fff3a_row2_col8, #T_fff3a_row2_col9, #T_fff3a_row3_col3, #T_fff3a_row3_col4, #T_fff3a_row3_col5, #T_fff3a_row3_col6, #T_fff3a_row3_col7, #T_fff3a_row3_col8, #T_fff3a_row3_col9, #T_fff3a_row4_col3, #T_fff3a_row4_col4, #T_fff3a_row4_col5, #T_fff3a_row4_col6, #T_fff3a_row4_col7, #T_fff3a_row4_col8, #T_fff3a_row4_col9, #T_fff3a_row5_col3, #T_fff3a_row5_col4, #T_fff3a_row5_col5, #T_fff3a_row5_col6, #T_fff3a_row5_col7, #T_fff3a_row5_col9, #T_fff3a_row6_col3, #T_fff3a_row6_col4, #T_fff3a_row6_col5, #T_fff3a_row6_col6, #T_fff3a_row6_col9, #T_fff3a_row7_col3, #T_fff3a_row7_col4, #T_fff3a_row7_col5, #T_fff3a_row7_col6, #T_fff3a_row7_col9, #T_fff3a_row8_col3, #T_fff3a_row8_col4, #T_fff3a_row8_col5, #T_fff3a_row8_col6, #T_fff3a_row8_col7, #T_fff3a_row8_col9, #T_fff3a_row9_col3, #T_fff3a_row9_col4, #T_fff3a_row9_col5, #T_fff3a_row9_col6, #T_fff3a_row9_col7, #T_fff3a_row9_col9, #T_fff3a_row10_col3, #T_fff3a_row10_col4, #T_fff3a_row10_col5, #T_fff3a_row10_col6, #T_fff3a_row10_col7, #T_fff3a_row10_col8, #T_fff3a_row10_col9, #T_fff3a_row11_col3, #T_fff3a_row11_col4, #T_fff3a_row11_col5, #T_fff3a_row11_col6, #T_fff3a_row11_col7, #T_fff3a_row11_col8, #T_fff3a_row11_col9 {
-  color: green;
-  font-weight: 500;
-  text-align: right;
-}
-#T_fff3a_row1_col8, #T_fff3a_row5_col8, #T_fff3a_row6_col7, #T_fff3a_row6_col8, #T_fff3a_row7_col7, #T_fff3a_row7_col8, #T_fff3a_row8_col8, #T_fff3a_row9_col8 {
-  color: red;
-  font-weight: 500;
-  text-align: right;
-}
-</style>
-<table id="T_fff3a">
+        <h2>Top 30 acciones más interesantes</h2>
+        <table class="dataframe tabla-principal">
   <thead>
-    <tr>
-      <th id="T_fff3a_level0_col0" class="col_heading level0 col0" >Ticker</th>
-      <th id="T_fff3a_level0_col1" class="col_heading level0 col1" >Nombre</th>
-      <th id="T_fff3a_level0_col2" class="col_heading level0 col2" >Precio</th>
-      <th id="T_fff3a_level0_col3" class="col_heading level0 col3" >Ret_1Y_%</th>
-      <th id="T_fff3a_level0_col4" class="col_heading level0 col4" >Ret_6M_%</th>
-      <th id="T_fff3a_level0_col5" class="col_heading level0 col5" >Ret_3M_%</th>
-      <th id="T_fff3a_level0_col6" class="col_heading level0 col6" >Ret_1M_%</th>
-      <th id="T_fff3a_level0_col7" class="col_heading level0 col7" >Ret_1W_%</th>
-      <th id="T_fff3a_level0_col8" class="col_heading level0 col8" >Ret_1D_%</th>
-      <th id="T_fff3a_level0_col9" class="col_heading level0 col9" >Vol_Anual_%</th>
-      <th id="T_fff3a_level0_col10" class="col_heading level0 col10" >MA50</th>
-      <th id="T_fff3a_level0_col11" class="col_heading level0 col11" >MA200</th>
-      <th id="T_fff3a_level0_col12" class="col_heading level0 col12" >Trend_Score_0_3</th>
+    <tr style="text-align: right;">
+      <th>Ticker</th>
+      <th>Nombre</th>
+      <th>Precio</th>
+      <th>Ret_1Y_%</th>
+      <th>Ret_6M_%</th>
+      <th>Ret_3M_%</th>
+      <th>Ret_1M_%</th>
+      <th>Ret_1W_%</th>
+      <th>Ret_1D_%</th>
+      <th>Vol_Anual_%</th>
+      <th>Vol_Ratio</th>
+      <th>Trend_Score_0_3</th>
+      <th>Interest_Score_0_6</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td id="T_fff3a_row0_col0" class="data row0 col0" >^N225</td>
-      <td id="T_fff3a_row0_col1" class="data row0 col1" >Nikkei 225 (Japón)</td>
-      <td id="T_fff3a_row0_col2" class="data row0 col2" >51063.31</td>
-      <td id="T_fff3a_row0_col3" class="data row0 col3" >30.01</td>
-      <td id="T_fff3a_row0_col4" class="data row0 col4" >35.65</td>
-      <td id="T_fff3a_row0_col5" class="data row0 col5" >22.10</td>
-      <td id="T_fff3a_row0_col6" class="data row0 col6" >6.19</td>
-      <td id="T_fff3a_row0_col7" class="data row0 col7" >1.69</td>
-      <td id="T_fff3a_row0_col8" class="data row0 col8" >0.43</td>
-      <td id="T_fff3a_row0_col9" class="data row0 col9" >23.14</td>
-      <td id="T_fff3a_row0_col10" class="data row0 col10" >47004.81</td>
-      <td id="T_fff3a_row0_col11" class="data row0 col11" >40575.40</td>
-      <td id="T_fff3a_row0_col12" class="data row0 col12" >3</td>
+      <td>RWE.DE</td>
+      <td>RWE (Alemania)</td>
+      <td>46.86</td>
+      <td>51.45</td>
+      <td>40.34</td>
+      <td>34.54</td>
+      <td>15.33</td>
+      <td>10.03</td>
+      <td>9.13</td>
+      <td>22.92</td>
+      <td>2.69</td>
+      <td>3</td>
+      <td>6</td>
     </tr>
     <tr>
-      <td id="T_fff3a_row1_col0" class="data row1 col0" >EEM</td>
-      <td id="T_fff3a_row1_col1" class="data row1 col1" >EEM (Emerging Markets ETF)</td>
-      <td id="T_fff3a_row1_col2" class="data row1 col2" >54.93</td>
-      <td id="T_fff3a_row1_col3" class="data row1 col3" >27.28</td>
-      <td id="T_fff3a_row1_col4" class="data row1 col4" >19.81</td>
-      <td id="T_fff3a_row1_col5" class="data row1 col5" >9.99</td>
-      <td id="T_fff3a_row1_col6" class="data row1 col6" >2.02</td>
-      <td id="T_fff3a_row1_col7" class="data row1 col7" >0.40</td>
-      <td id="T_fff3a_row1_col8" class="data row1 col8" >-1.17</td>
-      <td id="T_fff3a_row1_col9" class="data row1 col9" >17.81</td>
-      <td id="T_fff3a_row1_col10" class="data row1 col10" >53.86</td>
-      <td id="T_fff3a_row1_col11" class="data row1 col11" >47.79</td>
-      <td id="T_fff3a_row1_col12" class="data row1 col12" >3</td>
+      <td>CSCO</td>
+      <td>Cisco Systems (USA)</td>
+      <td>77.38</td>
+      <td>35.38</td>
+      <td>21.87</td>
+      <td>17.59</td>
+      <td>11.31</td>
+      <td>8.92</td>
+      <td>4.62</td>
+      <td>23.28</td>
+      <td>2.53</td>
+      <td>3</td>
+      <td>6</td>
     </tr>
     <tr>
-      <td id="T_fff3a_row2_col0" class="data row2 col0" >^FTSE</td>
-      <td id="T_fff3a_row2_col1" class="data row2 col1" >FTSE 100 (UK)</td>
-      <td id="T_fff3a_row2_col2" class="data row2 col2" >9911.40</td>
-      <td id="T_fff3a_row2_col3" class="data row2 col3" >23.43</td>
-      <td id="T_fff3a_row2_col4" class="data row2 col4" >14.13</td>
-      <td id="T_fff3a_row2_col5" class="data row2 col5" >8.00</td>
-      <td id="T_fff3a_row2_col6" class="data row2 col6" >4.85</td>
-      <td id="T_fff3a_row2_col7" class="data row2 col7" >1.37</td>
-      <td id="T_fff3a_row2_col8" class="data row2 col8" >0.12</td>
-      <td id="T_fff3a_row2_col9" class="data row2 col9" >11.93</td>
-      <td id="T_fff3a_row2_col10" class="data row2 col10" >9459.19</td>
-      <td id="T_fff3a_row2_col11" class="data row2 col11" >8934.08</td>
-      <td id="T_fff3a_row2_col12" class="data row2 col12" >3</td>
+      <td>SAN.MC</td>
+      <td>Banco Santander (España)</td>
+      <td>9.56</td>
+      <td>115.32</td>
+      <td>37.54</td>
+      <td>17.52</td>
+      <td>13.68</td>
+      <td>7.74</td>
+      <td>2.74</td>
+      <td>31.86</td>
+      <td>1.63</td>
+      <td>3</td>
+      <td>6</td>
     </tr>
     <tr>
-      <td id="T_fff3a_row3_col0" class="data row3 col0" >^HSI</td>
-      <td id="T_fff3a_row3_col1" class="data row3 col1" >Hang Seng (Hong Kong)</td>
-      <td id="T_fff3a_row3_col2" class="data row3 col2" >26922.73</td>
-      <td id="T_fff3a_row3_col3" class="data row3 col3" >30.90</td>
-      <td id="T_fff3a_row3_col4" class="data row3 col4" >13.88</td>
-      <td id="T_fff3a_row3_col5" class="data row3 col5" >7.82</td>
-      <td id="T_fff3a_row3_col6" class="data row3 col6" >3.99</td>
-      <td id="T_fff3a_row3_col7" class="data row3 col7" >3.81</td>
-      <td id="T_fff3a_row3_col8" class="data row3 col8" >0.85</td>
-      <td id="T_fff3a_row3_col9" class="data row3 col9" >24.37</td>
-      <td id="T_fff3a_row3_col10" class="data row3 col10" >26212.40</td>
-      <td id="T_fff3a_row3_col11" class="data row3 col11" >24110.66</td>
-      <td id="T_fff3a_row3_col12" class="data row3 col12" >3</td>
+      <td>INFY.NS</td>
+      <td>Infosys (India)</td>
+      <td>1551.70</td>
+      <td>-12.40</td>
+      <td>0.33</td>
+      <td>10.31</td>
+      <td>5.51</td>
+      <td>5.71</td>
+      <td>1.40</td>
+      <td>25.14</td>
+      <td>1.73</td>
+      <td>3</td>
+      <td>6</td>
     </tr>
     <tr>
-      <td id="T_fff3a_row4_col0" class="data row4 col0" >^STOXX50E</td>
-      <td id="T_fff3a_row4_col1" class="data row4 col1" >EuroStoxx 50 (EU)</td>
-      <td id="T_fff3a_row4_col2" class="data row4 col2" >5787.31</td>
-      <td id="T_fff3a_row4_col3" class="data row4 col3" >19.28</td>
-      <td id="T_fff3a_row4_col4" class="data row4 col4" >6.93</td>
-      <td id="T_fff3a_row4_col5" class="data row4 col5" >6.22</td>
-      <td id="T_fff3a_row4_col6" class="data row4 col6" >4.24</td>
-      <td id="T_fff3a_row4_col7" class="data row4 col7" >2.08</td>
-      <td id="T_fff3a_row4_col8" class="data row4 col8" >1.08</td>
-      <td id="T_fff3a_row4_col9" class="data row4 col9" >16.57</td>
-      <td id="T_fff3a_row4_col10" class="data row4 col10" >5562.03</td>
-      <td id="T_fff3a_row4_col11" class="data row4 col11" >5382.35</td>
-      <td id="T_fff3a_row4_col12" class="data row4 col12" >3</td>
+      <td>PETR4.SA</td>
+      <td>Petrobras PN (Brasil)</td>
+      <td>32.35</td>
+      <td>6.17</td>
+      <td>6.57</td>
+      <td>9.66</td>
+      <td>7.76</td>
+      <td>4.86</td>
+      <td>-2.56</td>
+      <td>23.12</td>
+      <td>1.72</td>
+      <td>3</td>
+      <td>6</td>
     </tr>
     <tr>
-      <td id="T_fff3a_row5_col0" class="data row5 col0" >^DJI</td>
-      <td id="T_fff3a_row5_col1" class="data row5 col1" >Dow Jones (USA)</td>
-      <td id="T_fff3a_row5_col2" class="data row5 col2" >47457.22</td>
-      <td id="T_fff3a_row5_col3" class="data row5 col3" >7.14</td>
-      <td id="T_fff3a_row5_col4" class="data row5 col4" >12.13</td>
-      <td id="T_fff3a_row5_col5" class="data row5 col5" >5.59</td>
-      <td id="T_fff3a_row5_col6" class="data row5 col6" >2.60</td>
-      <td id="T_fff3a_row5_col7" class="data row5 col7" >1.16</td>
-      <td id="T_fff3a_row5_col8" class="data row5 col8" >-1.65</td>
-      <td id="T_fff3a_row5_col9" class="data row5 col9" >16.70</td>
-      <td id="T_fff3a_row5_col10" class="data row5 col10" >46576.90</td>
-      <td id="T_fff3a_row5_col11" class="data row5 col11" >43845.19</td>
-      <td id="T_fff3a_row5_col12" class="data row5 col12" >3</td>
+      <td>ISP.MI</td>
+      <td>Intesa Sanpaolo (Italia)</td>
+      <td>5.94</td>
+      <td>69.10</td>
+      <td>22.20</td>
+      <td>7.82</td>
+      <td>8.57</td>
+      <td>5.94</td>
+      <td>1.59</td>
+      <td>25.72</td>
+      <td>1.53</td>
+      <td>3</td>
+      <td>6</td>
     </tr>
     <tr>
-      <td id="T_fff3a_row6_col0" class="data row6 col0" >QQQ</td>
-      <td id="T_fff3a_row6_col1" class="data row6 col1" >QQQ (ETF Nasdaq 100)</td>
-      <td id="T_fff3a_row6_col2" class="data row6 col2" >608.40</td>
-      <td id="T_fff3a_row6_col3" class="data row6 col3" >19.04</td>
-      <td id="T_fff3a_row6_col4" class="data row6 col4" >17.44</td>
-      <td id="T_fff3a_row6_col5" class="data row6 col5" >5.50</td>
-      <td id="T_fff3a_row6_col6" class="data row6 col6" >1.03</td>
-      <td id="T_fff3a_row6_col7" class="data row6 col7" >-0.53</td>
-      <td id="T_fff3a_row6_col8" class="data row6 col8" >-2.04</td>
-      <td id="T_fff3a_row6_col9" class="data row6 col9" >23.72</td>
-      <td id="T_fff3a_row6_col10" class="data row6 col10" >605.05</td>
-      <td id="T_fff3a_row6_col11" class="data row6 col11" >540.40</td>
-      <td id="T_fff3a_row6_col12" class="data row6 col12" >3</td>
+      <td>BAYN.DE</td>
+      <td>Bayer (Alemania)</td>
+      <td>29.06</td>
+      <td>44.95</td>
+      <td>24.03</td>
+      <td>7.45</td>
+      <td>6.33</td>
+      <td>9.97</td>
+      <td>5.94</td>
+      <td>32.96</td>
+      <td>3.55</td>
+      <td>3</td>
+      <td>6</td>
     </tr>
     <tr>
-      <td id="T_fff3a_row7_col0" class="data row7 col0" >^NDX</td>
-      <td id="T_fff3a_row7_col1" class="data row7 col1" >Nasdaq 100 (USA)</td>
-      <td id="T_fff3a_row7_col2" class="data row7 col2" >24993.46</td>
-      <td id="T_fff3a_row7_col3" class="data row7 col3" >18.42</td>
-      <td id="T_fff3a_row7_col4" class="data row7 col4" >17.14</td>
-      <td id="T_fff3a_row7_col5" class="data row7 col5" >5.40</td>
-      <td id="T_fff3a_row7_col6" class="data row7 col6" >1.00</td>
-      <td id="T_fff3a_row7_col7" class="data row7 col7" >-0.54</td>
-      <td id="T_fff3a_row7_col8" class="data row7 col8" >-2.05</td>
-      <td id="T_fff3a_row7_col9" class="data row7 col9" >23.79</td>
-      <td id="T_fff3a_row7_col10" class="data row7 col10" >24868.54</td>
-      <td id="T_fff3a_row7_col11" class="data row7 col11" >22243.22</td>
-      <td id="T_fff3a_row7_col12" class="data row7 col12" >3</td>
+      <td>HEI.DE</td>
+      <td>Heidelberg Materials (Alemania)</td>
+      <td>215.50</td>
+      <td>84.99</td>
+      <td>16.11</td>
+      <td>4.31</td>
+      <td>8.78</td>
+      <td>4.11</td>
+      <td>5.38</td>
+      <td>37.11</td>
+      <td>1.77</td>
+      <td>3</td>
+      <td>6</td>
     </tr>
     <tr>
-      <td id="T_fff3a_row8_col0" class="data row8 col0" >SPY</td>
-      <td id="T_fff3a_row8_col1" class="data row8 col1" >SPY (ETF S&P 500)</td>
-      <td id="T_fff3a_row8_col2" class="data row8 col2" >672.04</td>
-      <td id="T_fff3a_row8_col3" class="data row8 col3" >13.60</td>
-      <td id="T_fff3a_row8_col4" class="data row8 col4" >14.47</td>
-      <td id="T_fff3a_row8_col5" class="data row8 col5" >4.73</td>
-      <td id="T_fff3a_row8_col6" class="data row8 col6" >1.03</td>
-      <td id="T_fff3a_row8_col7" class="data row8 col7" >0.26</td>
-      <td id="T_fff3a_row8_col8" class="data row8 col8" >-1.66</td>
-      <td id="T_fff3a_row8_col9" class="data row8 col9" >19.55</td>
-      <td id="T_fff3a_row8_col10" class="data row8 col10" >667.62</td>
-      <td id="T_fff3a_row8_col11" class="data row8 col11" >610.37</td>
-      <td id="T_fff3a_row8_col12" class="data row8 col12" >3</td>
+      <td>3988.HK</td>
+      <td>Bank of China (HK)</td>
+      <td>4.75</td>
+      <td>33.63</td>
+      <td>1.50</td>
+      <td>3.26</td>
+      <td>13.10</td>
+      <td>3.94</td>
+      <td>0.85</td>
+      <td>20.78</td>
+      <td>1.51</td>
+      <td>3</td>
+      <td>6</td>
     </tr>
     <tr>
-      <td id="T_fff3a_row9_col0" class="data row9 col0" >^GSPC</td>
-      <td id="T_fff3a_row9_col1" class="data row9 col1" >S&P 500 (USA)</td>
-      <td id="T_fff3a_row9_col2" class="data row9 col2" >6737.49</td>
-      <td id="T_fff3a_row9_col3" class="data row9 col3" >12.27</td>
-      <td id="T_fff3a_row9_col4" class="data row9 col4" >13.87</td>
-      <td id="T_fff3a_row9_col5" class="data row9 col5" >4.46</td>
-      <td id="T_fff3a_row9_col6" class="data row9 col6" >1.00</td>
-      <td id="T_fff3a_row9_col7" class="data row9 col7" >0.26</td>
-      <td id="T_fff3a_row9_col8" class="data row9 col8" >-1.66</td>
-      <td id="T_fff3a_row9_col9" class="data row9 col9" >18.82</td>
-      <td id="T_fff3a_row9_col10" class="data row9 col10" >6699.12</td>
-      <td id="T_fff3a_row9_col11" class="data row9 col11" >6145.15</td>
-      <td id="T_fff3a_row9_col12" class="data row9 col12" >3</td>
+      <td>000660.KS</td>
+      <td>SK Hynix (Corea)</td>
+      <td>612000.00</td>
+      <td>224.73</td>
+      <td>222.64</td>
+      <td>133.93</td>
+      <td>44.85</td>
+      <td>3.20</td>
+      <td>-0.81</td>
+      <td>52.31</td>
+      <td>0.83</td>
+      <td>3</td>
+      <td>5</td>
     </tr>
     <tr>
-      <td id="T_fff3a_row10_col0" class="data row10 col0" >^FCHI</td>
-      <td id="T_fff3a_row10_col1" class="data row10 col1" >CAC 40 (Francia)</td>
-      <td id="T_fff3a_row10_col2" class="data row10 col2" >8241.24</td>
-      <td id="T_fff3a_row10_col3" class="data row10 col3" >13.37</td>
-      <td id="T_fff3a_row10_col4" class="data row10 col4" >3.76</td>
-      <td id="T_fff3a_row10_col5" class="data row10 col5" >4.01</td>
-      <td id="T_fff3a_row10_col6" class="data row10 col6" >4.06</td>
-      <td id="T_fff3a_row10_col7" class="data row10 col7" >2.07</td>
-      <td id="T_fff3a_row10_col8" class="data row10 col8" >1.04</td>
-      <td id="T_fff3a_row10_col9" class="data row10 col9" >15.76</td>
-      <td id="T_fff3a_row10_col10" class="data row10 col10" >7989.87</td>
-      <td id="T_fff3a_row10_col11" class="data row10 col11" >7843.00</td>
-      <td id="T_fff3a_row10_col12" class="data row10 col12" >3</td>
+      <td>NOKIA.HE</td>
+      <td>Nokia (Finlandia)</td>
+      <td>5.99</td>
+      <td>45.65</td>
+      <td>31.97</td>
+      <td>66.74</td>
+      <td>29.17</td>
+      <td>1.01</td>
+      <td>1.35</td>
+      <td>39.52</td>
+      <td>0.43</td>
+      <td>3</td>
+      <td>5</td>
     </tr>
     <tr>
-      <td id="T_fff3a_row11_col0" class="data row11 col0" >^GDAXI</td>
-      <td id="T_fff3a_row11_col1" class="data row11 col1" >DAX (Alemania)</td>
-      <td id="T_fff3a_row11_col2" class="data row11 col2" >24381.46</td>
-      <td id="T_fff3a_row11_col3" class="data row11 col3" >28.30</td>
-      <td id="T_fff3a_row11_col4" class="data row11 col4" >1.44</td>
-      <td id="T_fff3a_row11_col5" class="data row11 col5" >0.09</td>
-      <td id="T_fff3a_row11_col6" class="data row11 col6" >0.60</td>
-      <td id="T_fff3a_row11_col7" class="data row11 col7" >1.38</td>
-      <td id="T_fff3a_row11_col8" class="data row11 col8" >1.22</td>
-      <td id="T_fff3a_row11_col9" class="data row11 col9" >17.64</td>
-      <td id="T_fff3a_row11_col10" class="data row11 col10" >23985.27</td>
-      <td id="T_fff3a_row11_col11" class="data row11 col11" >23406.48</td>
-      <td id="T_fff3a_row11_col12" class="data row11 col12" >3</td>
+      <td>005930.KS</td>
+      <td>Samsung Electronics (Corea)</td>
+      <td>102800.00</td>
+      <td>76.55</td>
+      <td>90.28</td>
+      <td>46.47</td>
+      <td>8.21</td>
+      <td>3.63</td>
+      <td>-0.29</td>
+      <td>33.38</td>
+      <td>0.81</td>
+      <td>3</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <td>VWS.CO</td>
+      <td>Vestas (Dinamarca)</td>
+      <td>164.10</td>
+      <td>53.60</td>
+      <td>46.85</td>
+      <td>42.88</td>
+      <td>30.50</td>
+      <td>9.40</td>
+      <td>2.92</td>
+      <td>54.36</td>
+      <td>1.02</td>
+      <td>3</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <td>MC.PA</td>
+      <td>LVMH (Francia)</td>
+      <td>647.20</td>
+      <td>13.12</td>
+      <td>28.18</td>
+      <td>35.94</td>
+      <td>21.47</td>
+      <td>5.61</td>
+      <td>2.26</td>
+      <td>33.31</td>
+      <td>1.31</td>
+      <td>3</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <td>ERIC-B.ST</td>
+      <td>Ericsson B (Suecia)</td>
+      <td>94.58</td>
+      <td>11.47</td>
+      <td>15.97</td>
+      <td>30.24</td>
+      <td>2.87</td>
+      <td>0.75</td>
+      <td>0.75</td>
+      <td>33.26</td>
+      <td>0.71</td>
+      <td>3</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <td>SID</td>
+      <td>CSN (Brasil)</td>
+      <td>1.63</td>
+      <td>-14.14</td>
+      <td>-2.40</td>
+      <td>27.34</td>
+      <td>5.16</td>
+      <td>3.16</td>
+      <td>-1.21</td>
+      <td>51.19</td>
+      <td>1.06</td>
+      <td>3</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <td>REP.MC</td>
+      <td>Repsol (España)</td>
+      <td>16.70</td>
+      <td>54.92</td>
+      <td>47.17</td>
+      <td>24.94</td>
+      <td>14.85</td>
+      <td>4.15</td>
+      <td>-0.83</td>
+      <td>23.63</td>
+      <td>1.14</td>
+      <td>3</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <td>VALE</td>
+      <td>Vale (Brasil)</td>
+      <td>12.38</td>
+      <td>31.37</td>
+      <td>30.49</td>
+      <td>24.80</td>
+      <td>10.83</td>
+      <td>1.23</td>
+      <td>-0.80</td>
+      <td>28.23</td>
+      <td>0.60</td>
+      <td>3</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <td>BBD</td>
+      <td>Bradesco (Brasil)</td>
+      <td>3.66</td>
+      <td>70.27</td>
+      <td>36.87</td>
+      <td>23.65</td>
+      <td>14.38</td>
+      <td>4.27</td>
+      <td>-0.54</td>
+      <td>38.05</td>
+      <td>1.01</td>
+      <td>3</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <td>SBS</td>
+      <td>Sabesp (Brasil)</td>
+      <td>26.57</td>
+      <td>72.13</td>
+      <td>30.57</td>
+      <td>23.07</td>
+      <td>14.77</td>
+      <td>4.07</td>
+      <td>-0.34</td>
+      <td>31.84</td>
+      <td>1.30</td>
+      <td>3</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <td>ELE.MC</td>
+      <td>Endesa (España)</td>
+      <td>32.20</td>
+      <td>71.83</td>
+      <td>22.28</td>
+      <td>21.23</td>
+      <td>11.65</td>
+      <td>1.13</td>
+      <td>0.85</td>
+      <td>18.64</td>
+      <td>0.68</td>
+      <td>3</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <td>ACS.MC</td>
+      <td>ACS (España)</td>
+      <td>78.80</td>
+      <td>96.20</td>
+      <td>32.68</td>
+      <td>20.31</td>
+      <td>9.29</td>
+      <td>6.70</td>
+      <td>0.90</td>
+      <td>24.94</td>
+      <td>0.92</td>
+      <td>3</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <td>FER.MC</td>
+      <td>Ferrovial (España)</td>
+      <td>55.54</td>
+      <td>53.76</td>
+      <td>21.43</td>
+      <td>19.75</td>
+      <td>7.21</td>
+      <td>0.69</td>
+      <td>1.09</td>
+      <td>19.78</td>
+      <td>1.47</td>
+      <td>3</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <td>SSL</td>
+      <td>Sasol (Sudáfrica)</td>
+      <td>6.83</td>
+      <td>22.84</td>
+      <td>84.10</td>
+      <td>18.99</td>
+      <td>15.37</td>
+      <td>6.06</td>
+      <td>-1.87</td>
+      <td>60.28</td>
+      <td>0.85</td>
+      <td>3</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <td>AAPL</td>
+      <td>Apple (USA)</td>
+      <td>272.95</td>
+      <td>22.28</td>
+      <td>29.36</td>
+      <td>17.97</td>
+      <td>9.58</td>
+      <td>1.28</td>
+      <td>-0.19</td>
+      <td>32.50</td>
+      <td>0.95</td>
+      <td>3</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <td>6758.T</td>
+      <td>Sony (Japón)</td>
+      <td>4669.00</td>
+      <td>72.39</td>
+      <td>28.16</td>
+      <td>17.31</td>
+      <td>8.33</td>
+      <td>7.33</td>
+      <td>-0.36</td>
+      <td>39.35</td>
+      <td>1.04</td>
+      <td>3</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <td>BBVA.MC</td>
+      <td>BBVA (España)</td>
+      <td>18.91</td>
+      <td>113.48</td>
+      <td>39.84</td>
+      <td>16.85</td>
+      <td>20.46</td>
+      <td>7.17</td>
+      <td>1.94</td>
+      <td>30.37</td>
+      <td>0.60</td>
+      <td>3</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <td>ITX.MC</td>
+      <td>Inditex (España)</td>
+      <td>49.86</td>
+      <td>1.17</td>
+      <td>4.70</td>
+      <td>16.66</td>
+      <td>6.97</td>
+      <td>4.01</td>
+      <td>0.06</td>
+      <td>24.65</td>
+      <td>0.46</td>
+      <td>3</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <td>ENGI.PA</td>
+      <td>Engie (Francia)</td>
+      <td>21.67</td>
+      <td>52.80</td>
+      <td>15.17</td>
+      <td>14.60</td>
+      <td>13.43</td>
+      <td>3.44</td>
+      <td>1.88</td>
+      <td>17.70</td>
+      <td>1.15</td>
+      <td>3</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <td>7203.T</td>
+      <td>Toyota (Japón)</td>
+      <td>3198.00</td>
+      <td>23.23</td>
+      <td>13.94</td>
+      <td>13.74</td>
+      <td>11.37</td>
+      <td>1.88</td>
+      <td>0.25</td>
+      <td>34.62</td>
+      <td>0.68</td>
+      <td>3</td>
+      <td>5</td>
     </tr>
   </tbody>
 </table>
-
+        <h2>Mi cartera (seguimiento personal)</h2>
+        <table class="dataframe tabla-principal">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Ticker</th>
+      <th>Nombre</th>
+      <th>Precio_compra</th>
+      <th>Precio_actual</th>
+      <th>Cantidad</th>
+      <th>Inversion_inicial</th>
+      <th>Valor_actual</th>
+      <th>Ganancia_€</th>
+      <th>Rentabilidad_%</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>BKT.MC</td>
+      <td>Bankinter (España)</td>
+      <td>13.5</td>
+      <td>13.95</td>
+      <td>22.2222</td>
+      <td>300.0</td>
+      <td>310.11</td>
+      <td>10.11</td>
+      <td>3.37</td>
+    </tr>
+  </tbody>
+</table>
     </div>
 </body>
 </html>
